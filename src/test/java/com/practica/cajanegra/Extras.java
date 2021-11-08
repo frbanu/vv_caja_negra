@@ -51,5 +51,23 @@ public class Extras {
         assertEquals(0,listaVacia.isSubList(listaVacia));
         assertEquals(-1,listaVacia.isSubList(miLista));
     }
+    @Test
+    public void testgetAtPos(){
+        assertThrows(IllegalArgumentException.class,()->{listaVacia.getAtPos(0);});
+        assertThrows(IllegalArgumentException.class,()->{listaVacia.getAtPos(1);});
+        assertThrows(IllegalArgumentException.class,()->{listaVacia.getAtPos(2);});
+        assertThrows(IllegalArgumentException.class,()->{listaVacia.getAtPos(4);});
+        assertThrows(IllegalArgumentException.class,()->{listaVacia.getAtPos(6);});
+        assertThrows(IllegalArgumentException.class,()->{listaVacia.getAtPos(7);});
+        assertThrows(IllegalArgumentException.class,()->{listaVacia.getAtPos(8);});
+        assertThrows(IllegalArgumentException.class,()->{miLista.getAtPos(0);});
+        assertEquals('A',miLista.getAtPos(1));
+        assertEquals('B',miLista.getAtPos(2));
+        assertEquals('Z',miLista.getAtPos(4));
+        assertEquals('A',miLista.getAtPos(6));
+        assertEquals('H',miLista.getAtPos(7));
+        assertThrows(IllegalArgumentException.class,()->{miLista.getAtPos(8);});
+
+    }
 
 }
