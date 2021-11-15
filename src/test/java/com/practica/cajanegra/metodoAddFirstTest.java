@@ -7,48 +7,48 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class metodoAddFirstTest {
-    SingleLinkedListImpl<Character> listaVacia=new SingleLinkedListImpl<Character>();
-    SingleLinkedListImpl<Character> listaElementos= new SingleLinkedListImpl<Character>('A','G');
+    SingleLinkedListImpl<Character> listaVacia=null;
+    SingleLinkedListImpl<Character> listaElementos= null;
     @DisplayName("Inicialización")
     @BeforeEach
-    public void initAddLastTest(){
-        SingleLinkedListImpl<Character> listaVacia=new SingleLinkedListImpl<Character>();
-        SingleLinkedListImpl<Character> listaElementos= new SingleLinkedListImpl<Character>('A','G');
+    void initAddFirstTest(){
+        listaVacia=new SingleLinkedListImpl<Character>();
+        listaElementos= new SingleLinkedListImpl<Character>('A','G');
     }
     @DisplayName("Caso de prueba 1: AddFirst")
     @Test
-    public void addLastCP1(){
+    public void addFirstCP1(){
         listaVacia.addFirst('A');
         assertEquals("[A]",listaVacia.toString());
 
     }
     @DisplayName("Caso de prueba 2: AddFirst")
     @Test
-    public void addLastCP2(){
+    public void addFirstCP2(){
         listaElementos.addFirst('B');
         assertEquals("[A, G, B]",listaElementos.toString());//CP2
     }
     @DisplayName("Caso de prueba 3: AddFirst")
     @Test
-    public void addLastCP3(){
+    public void addFirstCP3(){
         listaElementos.addFirst('F');
         assertEquals("[A, G, F]",listaElementos.toString());//CP3
     }
     @DisplayName("Caso de prueba 4: AddFirst")
     @Test
-    public void addLastCP4(){
+    public void addFirstCP4(){
         listaElementos.addFirst('X');
         assertEquals("[A, G, X]",listaElementos.toString());//CP4
     }
     @DisplayName("Caso de prueba 5: AddFirst")
     @Test
-    public void addLastCP5(){
+    public void addFirstCP5(){
         listaElementos.addFirst('Z');
         assertEquals("[A, G, Z]",listaElementos.toString());//CP5
     }
     @DisplayName("Caso de prueba 6: AddFirst")
     @Test
-    public  void addLastCP6(){
+    public  void addFirstCP6(){
         Exception thrown =
                 assertThrows(Exception.class,
                         () ->listaElementos.addFirst('@'),
@@ -56,7 +56,7 @@ public class metodoAddFirstTest {
     }
     @DisplayName("Caso de prueba 7: AddFirst")
     @Test
-    public  void addLastCP7(){
+    public  void addFirstCP7(){
         Exception thrown =
                 assertThrows(Exception.class,
                         () ->listaElementos.addFirst('['),
