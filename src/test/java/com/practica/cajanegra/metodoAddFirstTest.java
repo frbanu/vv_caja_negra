@@ -26,25 +26,25 @@ public class metodoAddFirstTest {
     @Test
     public void addFirstCP2(){
         listaElementos.addFirst('B');
-        assertEquals("[A, G, B]",listaElementos.toString());//CP2
+        assertEquals("[B, A, G]",listaElementos.toString());//CP2
     }
     @DisplayName("Caso de prueba 3: AddFirst")
     @Test
     public void addFirstCP3(){
         listaElementos.addFirst('F');
-        assertEquals("[A, G, F]",listaElementos.toString());//CP3
+        assertEquals("[F, A, G]",listaElementos.toString());//CP3
     }
     @DisplayName("Caso de prueba 4: AddFirst")
     @Test
     public void addFirstCP4(){
         listaElementos.addFirst('X');
-        assertEquals("[A, G, X]",listaElementos.toString());//CP4
+        assertEquals("[X, A, G]",listaElementos.toString());//CP4
     }
     @DisplayName("Caso de prueba 5: AddFirst")
     @Test
     public void addFirstCP5(){
         listaElementos.addFirst('Z');
-        assertEquals("[A, G, Z]",listaElementos.toString());//CP5
+        assertEquals("[Z, A, G]",listaElementos.toString());//CP5
     }
     @DisplayName("Caso de prueba 6: AddFirst")
     @Test
