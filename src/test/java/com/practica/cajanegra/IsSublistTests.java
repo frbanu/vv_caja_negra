@@ -15,12 +15,14 @@ public class IsSublistTests {
     private static SingleLinkedListImpl<Character> differentFilledSublist;
     private static SingleLinkedListImpl<Character> shortSublist;
     private static SingleLinkedListImpl<Character> emptySublist;
+    private static SingleLinkedListImpl<Character> biggerSublList;
     @BeforeAll
     public static void setUp() {
         emptyList = new SingleLinkedListImpl<Character>();
         filledList = new SingleLinkedListImpl<Character>('A', 'B', 'G', 'Z', 'I', 'K', 'R', 'V');
         equalFilledSublist = new SingleLinkedListImpl<Character>('A', 'B', 'G', 'Z', 'I', 'K', 'R', 'V');
         differentFilledSublist = new SingleLinkedListImpl<Character>('G', 'E', 'A', 'Z', 'R', 'P', 'V', 'N');
+        biggerSublList = new SingleLinkedListImpl<Character>('H','I','S','T','R','G','G','S','H','E','V','S','R','N');
         shortSublist = new SingleLinkedListImpl<Character>('Z', 'I', 'K');
         emptySublist = new SingleLinkedListImpl<Character>();
     }
@@ -35,6 +37,7 @@ public class IsSublistTests {
         assertEquals(1, filledList.isSubList(equalFilledSublist));
         assertEquals(-1, filledList.isSubList(differentFilledSublist));
         assertEquals(4, filledList.isSubList(shortSublist));
+        assertEquals(-1, filledList.isSubList(biggerSublList));
     }
 
 
