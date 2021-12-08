@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Assertions.*;
 
 import java.util.NoSuchElementException;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -30,48 +31,48 @@ public class SingleLinkedListImplTest {
             }
             @DisplayName("Pos:0")
             @ParameterizedTest
-            @ValueSource(chars={'@','A','B','G','X','Z','['/*,'43'*/})//Casos de prueba 1-8 en orden.
+            @ValueSource(chars={'@','A','B','G','Y','Z','['/*,'43'*/})//Casos de prueba 1-8 en orden.
             void testAddAtPos0(Character t){
                 assertThrows(IllegalArgumentException.class,()->{listaElementos.addAtPos(t,0);});
             }
             @DisplayName("Pos:1")
             @ParameterizedTest
-            @ValueSource(chars={'@','A','B','G','X','Z','['/*,'43'*/})//Casos de prueba 9-16 en orden.
+            @ValueSource(chars={'@','A','B','G','Y','Z','['/*,'43'*/})//Casos de prueba 9-16 en orden.
             void testAddAtPos1(Character t){
                 listaElementos.addAtPos(t,1);
                 assertEquals("["+t+", A, B, C, D, E]",listaElementos.toString());
             }
             @DisplayName("Pos:2")
             @ParameterizedTest
-            @ValueSource(chars={'@','A','B','G','X','Z','['/*,'43'*/})//Casos de prueba 17-24 en orden.
+            @ValueSource(chars={'@','A','B','G','Y','Z','['/*,'43'*/})//Casos de prueba 17-24 en orden.
             void testAddAtPos2(Character t){
                 listaElementos.addAtPos(t,2);
                 assertEquals("[A, "+t+", B, C, D, E]",listaElementos.toString());
             }
             @DisplayName("Pos:3")
             @ParameterizedTest
-            @ValueSource(chars={'@','A','B','G','X','Z','['/*',43'*/})//Casos de prueba 25-32 en orden.
+            @ValueSource(chars={'@','A','B','G','Y','Z','['/*',43'*/})//Casos de prueba 25-32 en orden.
             void testAddAtPos3(Character t){
                 listaElementos.addAtPos(t,3);
                 assertEquals("[A, B, "+t+", C, D, E]",listaElementos.toString());
             }
             @DisplayName("Pos:4")
             @ParameterizedTest
-            @ValueSource(chars={'@','A','B','G','X','Z','['/*',43'*/})//Casos de prueba 33-40 en orden.
+            @ValueSource(chars={'@','A','B','G','Y','Z','['/*',43'*/})//Casos de prueba 33-40 en orden.
             void testAddAtPos4(Character t){
                 listaElementos.addAtPos(t,4);
                 assertEquals("[A, B, C, "+t+", D, E]",listaElementos.toString());
             }
             @DisplayName("Pos:5")
             @ParameterizedTest
-            @ValueSource(chars={'@','A','B','G','X','Z','['/*',43'*/})//Casos de prueba 41-48 en orden.
+            @ValueSource(chars={'@','A','B','G','Y','Z','['/*',43'*/})//Casos de prueba 41-48 en orden.
             void testAddAtPos5(Character t){
                 listaElementos.addAtPos(t,5);
                 assertEquals("[A, B, C, D, "+t+", E]",listaElementos.toString());
             }
             @DisplayName("Pos:8")
             @ParameterizedTest
-            @ValueSource(chars={'@','A','B','G','X','Z','['/*',43'*/})//Casos de prueba 49-56 en orden.
+            @ValueSource(chars={'@','A','B','G','Y','Z','['/*',43'*/})//Casos de prueba 49-56 en orden.
             void testAddAtPos8(Character t){
                 listaElementos.addAtPos(t,8);
                 assertEquals("[A, B, C, D, E, "+t+"]",listaElementos.toString());
@@ -119,8 +120,8 @@ public class SingleLinkedListImplTest {
             @DisplayName("Caso de prueba 4: AddFirst")
             @Test
             public void addFirstCP4(){
-                listaElementos.addFirst('X');
-                assertEquals("[X, A, G]",listaElementos.toString());//CP4
+                listaElementos.addFirst('Y');
+                assertEquals("[Y, A, G]",listaElementos.toString());//CP4
             }
             @DisplayName("Caso de prueba 5: AddFirst")
             @Test
@@ -179,8 +180,8 @@ public class SingleLinkedListImplTest {
             @DisplayName("Caso de prueba 4: AddLast")
             @Test
             public void addLastCP4(){
-                listaElementos.addLast('X');
-                assertEquals("[A, G, X]",listaElementos.toString());//CP4
+                listaElementos.addLast('Y');
+                assertEquals("[A, G, Y]",listaElementos.toString());//CP4
             }
             @DisplayName("Caso de prueba 5: AddLast")
             @Test
@@ -288,9 +289,9 @@ public class SingleLinkedListImplTest {
         @DisplayName("Test removeLastParameter()")
         public class TestRemoveLastParameter{
             private SingleLinkedListImpl<Character> miLista=null;
-            private SingleLinkedListImpl<Character> listaVacia;
+            private SingleLinkedListImpl<Character> listaVacia=null;
 
-            @BeforeAll
+            @BeforeEach
             public void setUp(){
                 miLista = new SingleLinkedListImpl<Character>('A','B','C','F','L','L','Y','Z');
                 listaVacia = new SingleLinkedListImpl<Character>();
@@ -316,7 +317,8 @@ public class SingleLinkedListImplTest {
             @Test
             public void removeLastCP3() throws EmptyCollectionException {
                 SingleLinkedListImpl<Character> listaEsperada = new SingleLinkedListImpl<Character>('B','C','F','L','L','Y','Z');
-                miLista.removeLast('A');
+                Character elem =miLista.removeLast('A');
+                Assert.assertTrue(elem.equals('A'));
                 Assert.assertEquals(listaEsperada.toString(),miLista.toString());
             }
 
@@ -325,8 +327,8 @@ public class SingleLinkedListImplTest {
             public void removeLastCP4() throws EmptyCollectionException{
                 SingleLinkedListImpl<Character> listaEsperada = new SingleLinkedListImpl<Character>('A','C','F','L','L','Y',
                         'Z');
-                miLista.removeLast('B');
-                System.out.println(listaEsperada);
+                Character elem =miLista.removeLast('B');
+                Assert.assertTrue(elem.equals('B'));
                 Assert.assertEquals(listaEsperada.toString(),miLista.toString());
             }
 
@@ -335,7 +337,8 @@ public class SingleLinkedListImplTest {
             public void removeLastCP5() throws EmptyCollectionException{
                 SingleLinkedListImpl<Character> listaEsperada = new SingleLinkedListImpl<Character>('A','B','C','L','L','Y',
                         'Z');
-                miLista.removeLast('F');
+                Character elem =miLista.removeLast('F');
+                Assert.assertTrue(elem.equals('F'));
                 Assert.assertEquals(listaEsperada.toString(),miLista.toString());
             }
 
@@ -344,7 +347,8 @@ public class SingleLinkedListImplTest {
             public void removeLastCP6() throws EmptyCollectionException{
                 SingleLinkedListImpl<Character> listaEsperada = new SingleLinkedListImpl<Character>('A','B','C','F','L','L',
                         'Z');
-                miLista.removeLast('Y');
+                Character elem =miLista.removeLast('Y');
+                Assert.assertTrue(elem.equals('Y'));
                 Assert.assertEquals(listaEsperada.toString(),miLista.toString());
             }
 
@@ -352,7 +356,8 @@ public class SingleLinkedListImplTest {
             @Test
             public void removeLastCP7() throws EmptyCollectionException{
                 SingleLinkedListImpl<Character> listaEsperada = new SingleLinkedListImpl<Character>('A','B','C','F','L','L','Y');
-                miLista.removeLast('Z');
+                Character elem =miLista.removeLast('Z');
+                Assert.assertTrue(elem.equals('Z'));
                 Assert.assertEquals(listaEsperada.toString(),miLista.toString());
             }
 
@@ -402,15 +407,20 @@ public class SingleLinkedListImplTest {
             }
             @Test   // caso prueba lista con un solo elemento
             public void removeLastCP2(){
-                Assertions.assertThrows(EmptyCollectionException.class, () ->{
-                    unElemento.removeLast();
-                });
+                try{
+                    Character elem= unElemento.removeLast();
+                    assertTrue(elem.equals('G'));
+                    Assert.assertEquals(listaVacia.toString(),unElemento.toString());}
+                catch (EmptyCollectionException e){};
             }
             @Test   // caso prueba lista con más de un elemento
             public void removeLastCP3(){
-                Assertions.assertThrows(EmptyCollectionException.class, () ->{
-                    miLista.removeLast();
-                });
+                SingleLinkedListImpl listaDeseada = new SingleLinkedListImpl<Character>('A','B','X','Z','L','A');
+                try{
+                    Character elem= miLista.removeLast();
+                    assertTrue(elem.equals('H'));
+                    Assert.assertEquals(listaDeseada.toString(),miLista.toString());}
+                catch (EmptyCollectionException e){};
             }
         }
     }
@@ -537,7 +547,7 @@ public class SingleLinkedListImplTest {
             private SingleLinkedListImpl<Character> listaVacia;
             @BeforeEach
             public void setUp() {
-                miLista = new SingleLinkedListImpl<Character>('A','B','X','Z','L','A','H');
+                miLista = new SingleLinkedListImpl<Character>('A','B','Y','Z','L','A','H');
                 listaVacia = new SingleLinkedListImpl<Character>();
             }
             @Test
@@ -619,7 +629,7 @@ public class SingleLinkedListImplTest {
             private SingleLinkedListImpl<Character> listaVacia;
             @BeforeEach
             public void setUp() {
-                miLista = new SingleLinkedListImpl<Character>('A','B','X','Z','L','A','H');
+                miLista = new SingleLinkedListImpl<Character>('A','B','Y','Z','L','A','H');
                 listaVacia = new SingleLinkedListImpl<Character>();
             }
             @Test
@@ -643,9 +653,9 @@ public class SingleLinkedListImplTest {
                 assertThrows(NoSuchElementException.class,()->{listaVacia.indexOf('L');}); //Caso de prueba indexOf 4
             }
             @Test
-            @DisplayName("Empty list and index of:X")
+            @DisplayName("Empty list and index of:Y")
             public void testEmptyListIndexOf5(){
-                assertThrows(NoSuchElementException.class,()->{listaVacia.indexOf('X');}); //Caso de prueba indexOf 5
+                assertThrows(NoSuchElementException.class,()->{listaVacia.indexOf('Y');}); //Caso de prueba indexOf 5
 
             }
             @Test
@@ -680,9 +690,9 @@ public class SingleLinkedListImplTest {
                 assertEquals(5,miLista.indexOf('L'));                              //Caso de prueba indexOf 11
             }
             @Test
-            @DisplayName("Filled list and index of:X")
+            @DisplayName("Filled list and index of:Y")
             public void testFilledListIndexOf5(){
-                assertEquals(3,miLista.indexOf('X'));                              //Caso de prueba indexOf 12
+                assertEquals(3,miLista.indexOf('Y'));                              //Caso de prueba indexOf 12
             }
             @Test
             @DisplayName("Filled list and index of:Z")

@@ -12,7 +12,7 @@ public class Extras {
     private static SingleLinkedListImpl<String> unElemento;
     @BeforeAll
     public static void setUp() {
-        miLista = new SingleLinkedListImpl<String>("A","B","X","Z","L","A","H");
+        miLista = new SingleLinkedListImpl<String>("A","B","Y","Z","L","A","H");
         unElemento = new SingleLinkedListImpl<String>("G");
         listaVacia = new SingleLinkedListImpl<String>();
     }
@@ -21,7 +21,7 @@ public class Extras {
     public void testToString(){
         assertEquals("[]",listaVacia.toString());
         assertEquals("[G]",unElemento.toString());
-        assertEquals("[A, B, X, Z, L, A, H]",miLista.toString());
+        assertEquals("[A, B, Y, Z, L, A, H]",miLista.toString());
     }
 
     @Test
@@ -32,11 +32,11 @@ public class Extras {
     }
     @Test
     public void testReverse(){
-        SingleLinkedListImpl pares = new SingleLinkedListImpl<String>("A","B","X","L","A","H");
+        SingleLinkedListImpl pares = new SingleLinkedListImpl<String>("A","B","Y","L","A","H");
         assertEquals("[]",listaVacia.reverse().toString());
         assertEquals("[G]",unElemento.reverse().toString());
-        assertEquals("[H, A, L, Z, X, B, A]",miLista.reverse().toString());
-        assertEquals("[H, A, L, X, B, A]",pares.reverse().toString());
+        assertEquals("[H, A, L, Z, Y, B, A]",miLista.reverse().toString());
+        assertEquals("[H, A, L, Y, B, A]",pares.reverse().toString());
     }
     @Test
     public void testIsSublist(){

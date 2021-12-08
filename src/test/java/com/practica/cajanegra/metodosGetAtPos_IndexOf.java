@@ -15,7 +15,7 @@ public class metodosGetAtPos_IndexOf {
     private static SingleLinkedListImpl<Character> listaVacia;
     @BeforeAll
     public static void setUp() {
-        miLista = new SingleLinkedListImpl<Character>('A','B','X','Z','L','A','H');
+        miLista = new SingleLinkedListImpl<Character>('A','B','Y','Z','L','A','H');
         listaVacia = new SingleLinkedListImpl<Character>();
     }
     @Test
@@ -41,14 +41,14 @@ public class metodosGetAtPos_IndexOf {
         assertThrows(NoSuchElementException.class,()->{listaVacia.indexOf('A');}); //Caso de prueba indexOf 2
         assertThrows(NoSuchElementException.class,()->{listaVacia.indexOf('B');}); //Caso de prueba indexOf 3
         assertThrows(NoSuchElementException.class,()->{listaVacia.indexOf('L');}); //Caso de prueba indexOf 4
-        assertThrows(NoSuchElementException.class,()->{listaVacia.indexOf('X');}); //Caso de prueba indexOf 5
+        assertThrows(NoSuchElementException.class,()->{listaVacia.indexOf('Y');}); //Caso de prueba indexOf 5
         assertThrows(NoSuchElementException.class,()->{listaVacia.indexOf('Z');}); //Caso de prueba indexOf 5
         assertThrows(NoSuchElementException.class,()->{listaVacia.indexOf('[');}); //Caso de prueba indexOf 7
         assertThrows(NoSuchElementException.class,()->{miLista.indexOf('@');});    //Caso de prueba indexOf 8
         assertEquals(1,miLista.indexOf('A'));                              //Caso de prueba indexOf 9
         assertEquals(2,miLista.indexOf('B'));                              //Caso de prueba indexOf 10
         assertEquals(5,miLista.indexOf('L'));                              //Caso de prueba indexOf 11
-        assertEquals(3,miLista.indexOf('X'));                              //Caso de prueba indexOf 12
+        assertEquals(3,miLista.indexOf('Y'));                              //Caso de prueba indexOf 12
         assertEquals(4,miLista.indexOf('Z'));                              //Caso de prueba indexOf 13
         assertThrows(NoSuchElementException.class,()->{miLista.indexOf('[');});    //Caso de prueba indexOf 14
     }

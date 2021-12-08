@@ -14,8 +14,8 @@ public class removeLastTest {
     private static SingleLinkedListImpl<Character> miLista=null;
     private static SingleLinkedListImpl<Character> listaVacia;
 
-    @BeforeAll
-    public static void setUp(){
+    @BeforeEach
+    public void setUp(){
         miLista = new SingleLinkedListImpl<Character>('A','B','C','F','L','L','Y','Z');
         listaVacia = new SingleLinkedListImpl<Character>();
     }
@@ -40,7 +40,8 @@ public class removeLastTest {
     @Test
     public void removeLastCP3() throws EmptyCollectionException {
         SingleLinkedListImpl<Character> listaEsperada = new SingleLinkedListImpl<Character>('B','C','F','L','L','Y','Z');
-        miLista.removeLast('A');
+        Character elem =miLista.removeLast('A');
+        Assert.assertTrue(elem.equals('A'));
         Assert.assertEquals(listaEsperada.toString(),miLista.toString());
     }
 
@@ -49,8 +50,8 @@ public class removeLastTest {
     public void removeLastCP4() throws EmptyCollectionException{
         SingleLinkedListImpl<Character> listaEsperada = new SingleLinkedListImpl<Character>('A','C','F','L','L','Y',
                 'Z');
-        miLista.removeLast('B');
-        System.out.println(listaEsperada);
+        Character elem =miLista.removeLast('B');
+        Assert.assertTrue(elem.equals('B'));
         Assert.assertEquals(listaEsperada.toString(),miLista.toString());
     }
 
@@ -59,7 +60,8 @@ public class removeLastTest {
     public void removeLastCP5() throws EmptyCollectionException{
         SingleLinkedListImpl<Character> listaEsperada = new SingleLinkedListImpl<Character>('A','B','C','L','L','Y',
                 'Z');
-        miLista.removeLast('F');
+        Character elem =miLista.removeLast('F');
+        Assert.assertTrue(elem.equals('F'));
         Assert.assertEquals(listaEsperada.toString(),miLista.toString());
     }
 
@@ -68,7 +70,8 @@ public class removeLastTest {
     public void removeLastCP6() throws EmptyCollectionException{
         SingleLinkedListImpl<Character> listaEsperada = new SingleLinkedListImpl<Character>('A','B','C','F','L','L',
                 'Z');
-        miLista.removeLast('Y');
+        Character elem =miLista.removeLast('Y');
+        Assert.assertTrue(elem.equals('Y'));
         Assert.assertEquals(listaEsperada.toString(),miLista.toString());
     }
 
@@ -76,7 +79,8 @@ public class removeLastTest {
     @Test
     public void removeLastCP7() throws EmptyCollectionException{
         SingleLinkedListImpl<Character> listaEsperada = new SingleLinkedListImpl<Character>('A','B','C','F','L','L','Y');
-        miLista.removeLast('Z');
+        Character elem =miLista.removeLast('Z');
+        Assert.assertTrue(elem.equals('Z'));
         Assert.assertEquals(listaEsperada.toString(),miLista.toString());
     }
 
@@ -96,13 +100,13 @@ public class removeLastTest {
     }
 
 
-   @DisplayName("Caso de prueba 10, pasar como argumento un valor entero")
+   /*@DisplayName("Caso de prueba 10, pasar como argumento un valor entero")
     @Test
     public void removeLastCP10() {
         Assertions.assertThrows(Exception.class, () ->{
             miLista.removeLast(10);
         });
-    }
+    }*/
 
 
 

@@ -31,15 +31,20 @@ public class removeLastNoParameter {
     }
     @Test   // caso prueba lista con un solo elemento
     public void removeLastCP2(){
-        Assertions.assertThrows(EmptyCollectionException.class, () ->{
-            unElemento.removeLast();
-        });
+        try{
+        Character elem= unElemento.removeLast();
+        assertTrue(elem.equals('G'));
+        assertEquals(listaVacia.toString(),unElemento.toString());}
+        catch (EmptyCollectionException e){};
     }
     @Test   // caso prueba lista con más de un elemento
     public void removeLastCP3(){
-        Assertions.assertThrows(EmptyCollectionException.class, () ->{
-            miLista.removeLast();
-        });
+        SingleLinkedListImpl listaDeseada = new SingleLinkedListImpl<Character>('A','B','X','Z','L','A');
+        try{
+            Character elem= miLista.removeLast();
+            assertTrue(elem.equals('H'));
+            assertEquals(listaDeseada.toString(),miLista.toString());}
+        catch (EmptyCollectionException e){};
     }
 
 }

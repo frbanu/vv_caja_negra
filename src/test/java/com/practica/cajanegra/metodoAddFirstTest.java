@@ -37,8 +37,8 @@ public class metodoAddFirstTest {
     @DisplayName("Caso de prueba 4: AddFirst")
     @Test
     public void addFirstCP4(){
-        listaElementos.addFirst('X');
-        assertEquals("[X, A, G]",listaElementos.toString());//CP4
+        listaElementos.addFirst('Y');
+        assertEquals("[Y, A, G]",listaElementos.toString());//CP4
     }
     @DisplayName("Caso de prueba 5: AddFirst")
     @Test

@@ -37,8 +37,8 @@ public class metodoAddLastTest {
     @DisplayName("Caso de prueba 4: AddLast")
     @Test
     public void addLastCP4(){
-        listaElementos.addLast('X');
-        assertEquals("[A, G, X]",listaElementos.toString());//CP4
+        listaElementos.addLast('Y');
+        assertEquals("[A, G, Y]",listaElementos.toString());//CP4
     }
     @DisplayName("Caso de prueba 5: AddLast")
     @Test
